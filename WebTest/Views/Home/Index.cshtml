@@ -1,31 +1,17 @@
-﻿@model WebTest.Models.StateModel
-@{
-    ViewData["Title"] = "Home Page";
+﻿@*@model WebTest.Models.StateModel*@
+
+@section header {
 }
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-
-    @{
-        ViewData["Title"] = "Index";
-    }
-
-    <h2>state</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary();
-        @Html.Label("State");
-        @Html.DropDownListFor(x => x.ID, Model.states, "------PleaseSelect-------");
-        @Html.ValidationMessage("state is requred");
-        <input type="submit" value="Submit">
-    }
-
-
-
-
-
-
-
+@{
+    ViewBag.Title = "Edit Customer Information";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Edit Customer Information</h2>
+    </div>
+</div>
+<div id="EditCustomerPartial">
+    @Html.Action("EditCustomerPartial", new { id = Url.RequestContext.RouteData.Values["id"] })
 </div>
 
 
